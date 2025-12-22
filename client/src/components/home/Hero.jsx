@@ -5,11 +5,18 @@ const Hero = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const logos = [
-    "https://saasly.prebuiltui.com/assets/companies-logo/instagram.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/framer.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/microsoft.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/huawei.svg",
-    "https://saasly.prebuiltui.com/assets/companies-logo/walmart.svg",
+    {
+      src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/framer.svg",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoft.svg",
+    },
+    {
+      src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/huawei.svg",
+    },
   ];
 
   return (
@@ -226,7 +233,7 @@ const Hero = () => {
             {logos.map((logo, index) => (
               <img
                 key={index}
-                src={logo}
+                src={logo.src}
                 alt="logo"
                 className="h-6 w-auto max-w-xs"
               />
