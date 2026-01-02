@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
+  const { user } = useSelector((state) => state.auth);
   const [menuOpen, setMenuOpen] = React.useState(false);
-
   const logos = [
     {
       src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/instagram.svg",
@@ -42,22 +43,29 @@ const Hero = () => {
               Contact
             </a>
           </div>
-
           <div className="flex gap-2">
             <Link
               to="/app?state=register"
               className="hidden md:block px-6 py-2 bg-green-500 hover:bg-green-700 active:scale-95 transition-all rounded-full text-white"
+              hidden={user}
             >
               Get started
             </Link>
             <Link
               to="/app?state=login"
               className="hidden md:block px-6 py-2 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-slate-900"
+              hidden={user}
             >
               Login
             </Link>
+            <Link
+              to="/app"
+              className="hidden md:block px-8 py-2 bg-green-500 hover:bg-green-700 active:scale-95 transition-all rounded-full text-white"
+              hidden={!user}
+            >
+              Dashboard
+            </Link>
           </div>
-
           <button
             onClick={() => setMenuOpen(true)}
             className="md:hidden active:scale-90 transition"
@@ -75,7 +83,6 @@ const Hero = () => {
             </svg>
           </button>
         </nav>
-
         {/* Mobile Menu */}
         <div
           className={`fixed inset-0 z-100 bg-black/40 text-black backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-300 ${
@@ -101,11 +108,9 @@ const Hero = () => {
             X
           </button>
         </div>
-
         {/* Hero Section */}
         <div className="relative flex flex-col items-center justify-center text-sm px-4 md:px-16 lg:px-24 xl:px-40 text-black">
           <div className="absolute top-28 xl:top-10 -z-10 left-1/4 size-72 sm:size-96 xl:size-120 2xl:size-132 bg-green-300 blur-[100px] opacity-30"></div>
-
           {/* Avatars + Stars */}
           <div className="flex items-center mt-24">
             <div className="flex -space-x-3 pr-3">
@@ -135,7 +140,6 @@ const Hero = () => {
                 className="size-8 rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[5]"
               />
             </div>
-
             <div>
               <div className="flex ">
                 {Array(5)
@@ -162,7 +166,6 @@ const Hero = () => {
               <p className="text-sm text-gray-700">Used by 10,000+ users</p>
             </div>
           </div>
-
           {/* Headline + CTA */}
           <h1 className="text-5xl md:text-6xl font-semibold max-w-5xl text-center mt-4 md:leading-[70px]">
             Land your dream job with{" "}
@@ -171,12 +174,10 @@ const Hero = () => {
             </span>{" "}
             resumes.
           </h1>
-
           <p className="max-w-md text-center text-base my-7">
             Create, edit and download professional resumes with AI-powered
             assistance.
           </p>
-
           {/* CTA Buttons */}
           <div className="flex items-center gap-4 ">
             <Link
@@ -221,11 +222,9 @@ const Hero = () => {
               <span>Try demo</span>
             </button>
           </div>
-
           <p className="py-6 text-slate-600 mt-14">
             Trusting by leading brands, including
           </p>
-
           <div
             className="flex flex-wrap justify-between max-sm:justify-center gap-6 max-w-3xl w-full mx-auto py-4"
             id="logo-container"

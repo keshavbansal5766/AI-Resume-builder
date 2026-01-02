@@ -8,6 +8,7 @@ import { login, setLoading } from "./app/features/authSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {Toaster} from "react-hot-toast"
+import api from "./config/api";
 
 function App() {
   const dispatch = useDispatch();

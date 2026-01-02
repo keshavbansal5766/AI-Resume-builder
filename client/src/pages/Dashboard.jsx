@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [resume, setResume] = useState(null);
   const [editResumeId, setEditResumeId] = useState("");
   const navigate = useNavigate();
-
+ 
   const loadAllResumes = async () => {
     setAllResumes(dummyResumeData);
   };
