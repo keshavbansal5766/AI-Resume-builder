@@ -12,7 +12,7 @@ import upload from "../configs/multer.js";
 
 const resumeRouter = express.Router();
 
-resumeRouter.post("/create", createResume);
+resumeRouter.post("/create", protect, createResume);
 resumeRouter.put("/update", upload.single("image"), protect, updateResume);
 resumeRouter.delete("/delete/:resumeId", protect, deleteResume);
 resumeRouter.get("/get/:resumeId", protect, getResumeById);

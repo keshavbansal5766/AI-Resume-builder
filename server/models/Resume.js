@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 
 const ResumeSchema = new mongoose.Schema(
   {
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
     title: { type: String, default: "Untitled Resume" },
     public: { type: Boolean, default: false },
     template: { type: String, default: "classic" },
@@ -19,7 +22,7 @@ const ResumeSchema = new mongoose.Schema(
       linkedin: { type: String, default: "" },
       website: { type: String, default: "" },
     },
-    personal_info: {
+    experience: {
       company: { type: String },
       position: { type: String },
       start_date: { type: String },
