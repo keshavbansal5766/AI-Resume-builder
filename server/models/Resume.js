@@ -22,14 +22,16 @@ const ResumeSchema = new mongoose.Schema(
       linkedin: { type: String, default: "" },
       website: { type: String, default: "" },
     },
-    experience: {
-      company: { type: String },
-      position: { type: String },
-      start_date: { type: String },
-      end_date: { type: String },
-      description: { type: String },
-      isCurrent: { type: Boolean },
-    },
+    experience: [
+      {
+        company: { type: String },
+        position: { type: String },
+        start_date: { type: String },
+        end_date: { type: String },
+        description: { type: String },
+        isCurrent: { type: Boolean },
+      },
+    ],
     project: [
       {
         name: { type: String },
